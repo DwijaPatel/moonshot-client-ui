@@ -23,4 +23,15 @@
 	box-shadow: 0 0 0 1px #d0d0d0 inset;
 	line-height: 1.25em;
 }
-
+.bubble.reply-freeform {
+	margin: 0;
+}
+.bubble.reply.reply-freeform.say .bubble-content .bubble-button {
+	margin-top: 1px;
+	text-align: left;
+}
+.bubble.reply.say.bubble-hidden {
+	margin: 0;
+	transform: scale(0);
+	height: 0;
+}

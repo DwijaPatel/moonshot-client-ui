@@ -41,6 +41,7 @@ function reply(message) {
 }
 
 function searchCards(search_for, selectedLanguage) {
+    var lang = selectedLanguage.substring(0,2);
     startThinking();  
     var query = window.location.search.substring(1);
     var parms = query.split('&');
@@ -52,7 +53,7 @@ function searchCards(search_for, selectedLanguage) {
         },
         body: JSON.stringify({
             text: search_for,
-            language: selectedLanguage.substring(0,2)
+            language: lang.toLowerCase()
         })
     })
 
@@ -66,7 +67,11 @@ function searchCards(search_for, selectedLanguage) {
             displayCards(response, index);
         },1000);
         return response;
-    })
+    }).catch(function() {
+        console.log("error");
+        stopThinking();
+        say('Please, I dont get it! Could you try again?');
+    });
 }
 function startThinking() {
     $('#chatwrap')
