@@ -63,6 +63,7 @@
                     var searchTerm = $(this).val();
                     if (searchTerm.trim().length > 0) {
                         reply(searchTerm);
+                        searchCards(searchTerm, selectedLanguage);
                         $(this).val('');
                     }
 
@@ -84,14 +85,15 @@
 </head>
 
 <body>
-
+        <main>
     <!-- container element for chat window -->
     <div id="chat" class="bubble-container" >
 
         <div id="chatwrap" class="bubble-wrap" style="padding-bottom: 100px;">
 
         </div>
-        <div class="input-wrap"><textarea id="inputbox" placeholder="Ask me anything..." onkeypress=""></textarea></div>
+      
+        <div class="input-wrap"><p1>Please enter your question:</p1><textarea aria-label="Ask me anything!" id="inputbox" placeholder="Ask me anything..." onkeypress=""></textarea></div>
     </div>
 
 <div id="lang" class="w3-container" style="width:60%; margin:auto;">
@@ -99,7 +101,7 @@
                 <div class="w3-half w3-center">
                         <div class="w3-card-4"  style="margin: 5px">
                                 <header class="w3-container w3-light-grey">
-                                  <h3>Welcome</h3>
+                                  <h1>Welcome</h1>
                                 </header>
                                 <div class="w3-container">
                                   <p>You will be able to choose your language next.</p><br>
@@ -110,7 +112,7 @@
                 <div class="w3-half w3-center" >
                         <div class="w3-card-4"  style="margin: 5px">
                                 <header class="w3-container w3-light-grey">
-                                  <h3>Bienvenue</h3>
+                                  <h1>Bienvenue</h1>
                                 </header>
                                 <div class="w3-container">
                                   <p>CMás adelante podrás escoger tu idoma.</p><br>
@@ -122,5 +124,6 @@
 
 </div>
 
-
+</main>
 </body>
+</html>

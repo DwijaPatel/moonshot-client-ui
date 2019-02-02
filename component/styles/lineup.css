@@ -42,7 +42,7 @@
     animation-delay: -3s;
     -ms-animation-delay: -3;
     -webkit-animation-delay: -3s;
-  animation-play-state: running;
+    animation-play-state: running;
     margin-top: 3px;
     min-height: 24px;
     overflow: hidden;
