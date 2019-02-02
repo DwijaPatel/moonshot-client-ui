@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ami talking</title>
+
+    <!-- for mobile screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- stylesheets are conveniently separated into components -->
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background: #dcdde0;
+        }
+        
+    </style>
+
+    <script>
+
+        var selectedLanguage;
+
+        function setLanguage(lang) {
+            selectedLanguage = lang;
+        }
+   </script>
+
+</head>
+
+<body>
+
+<div id="lang" class="w3-container" style="width:60%; margin:auto;">
+        <div class="w3-row">
+                <div class="w3-half w3-center">
+                        <div class="w3-card-4"  style="margin: 5px">
+                                <header class="w3-container w3-light-grey">
+                                  <h3>Welcome</h3>
+                                </header>
+                                <div class="w3-container">
+                                  <p>You will be able to choose your language next.</p><br>
+                                </div>
+                                <button class="w3-button w3-block w3-dark-grey" onclick="setLanguage('English')">English</button>
+                              </div>
+                </div>
+                <div class="w3-half w3-center" >
+                        <div class="w3-card-4"  style="margin: 5px">
+                                <header class="w3-container w3-light-grey">
+                                  <h3>Bienvenue</h3>
+                                </header>
+                                <div class="w3-container">
+                                  <p>CMás adelante podrás escoger tu idoma.</p><br>
+                                </div>
+                                <button class="w3-button w3-block w3-dark-grey" onclick="setLanguage('Français')">Français</button>
+                              </div>
+                </div>
+            
+            </div>
+  
+</div>
+</body>
+</html>
