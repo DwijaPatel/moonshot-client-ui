@@ -6,3 +6,9 @@ function say(message) {
 function scrollToBottm() {
     $("#chatwrap").animate({ scrollTop: $('#chatwrap').prop("scrollHeight")}, 100);
 }
+
+function reply(message) {
+    $('#chatwrap')
+    .append('<div class="talk-reply" tabindex="0"><span class="a11y">You Said </span>' + message + '</div>');
+    scrollToBottm();
+}

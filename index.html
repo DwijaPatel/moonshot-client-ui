@@ -58,6 +58,17 @@
 
         function startConversation() {
             $('#chat').show()
+            $('#inputbox').on('keypress', function (e) {
+                if (e.which == 13) {
+                    var searchTerm = $(this).val();
+                    if (searchTerm.trim().length > 0) {
+                        reply(searchTerm);
+                        $(this).val('');
+                    }
+
+                    event.preventDefault();
+                }
+            });
             say('Hi in ' + selectedLanguage);
             say('What type of content do you want?');
           
