@@ -64,7 +64,7 @@ function searchCards(search_for, selectedLanguage) {
         console.log(response);
         list = response;
         setTimeout(function() {
-            displayCards(response, index);
+            displayCards(response, index, lang.toLowerCase());
         },1000);
         return response;
     }).catch(function() {
@@ -90,7 +90,7 @@ function getPureValue(viewers) {
     return viewers;
 }
 
-function displayCards(cards, index) {
+function displayCards(cards, index, lang) {
     var time = 0;
     for (var i = index; i < index+5 && i < cards.length; i++) {
         displayCard(cards[i], time * 1000);
@@ -98,12 +98,14 @@ function displayCards(cards, index) {
         if(i == index+4 || i == cards.length-1){
             setTimeout(function() {
                 stopThinking();
+                console.log(constants);
                 if(i == cards.length){
-                    say("Can I help you with anything else?")
+                    say(constants[lang].ask);
                 } else {
-                    say('Do you want<a href="#"> more</a>?')
-                    say("Can I help you with anything else?")
-                } 
+                    say('Do you want <a href="#">more</a>?')
+                    say(constants[lang].ask);
+                }  
+                
             }, 6000);  
         }
     }  

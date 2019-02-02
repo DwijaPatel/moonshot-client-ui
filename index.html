@@ -152,10 +152,57 @@
 
     </style>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./component/js/lineup.js"></script>
 
-    <script>
+</head>
+
+<body>
+        <!-- <main> -->
+    <!-- container element for chat window -->
+    <div id="chat" class="bubble-container" >
+         
+        <div id="chatwrap" class="bubble-wrap" style="padding-bottom: 100px;">
+        </div>
+      
+        <div class="input-wrap"><p1>Please enter your question:</p1><textarea aria-label="Ask me anything!" id="inputbox" placeholder="Ask me anything..." onkeypress=""></textarea></div>
+    </div>
+   
+
+<div id="lang" class="w3-container" style="width:60%; margin:auto;">
+        <div class="w3-row">
+                <div class="w3-half w3-center">
+                        <div class="w3-card-4"  style="margin: 5px">
+                                <header class="w3-container" style="background-color: #FFFFFF">
+                                  <h3>Welcome</h3>
+                                </header>
+                                <div class="w3-container" style="background-color: #FDFAFA">
+                                  <p>Before we begin, please choose the language you prefer.</p><br>
+                                </div>
+                                <button class="w3-button w3-block" style="background-color: #D0021B; color: #FFFFFF" onclick="setLanguage('english')">English</button>
+                              </div>
+                </div>
+                <div class="w3-half w3-center" >
+                        <div class="w3-card-4"  style="margin: 5px">
+                                <header class="w3-container" style="background-color: #FFFFFF">
+                                  <h3>Bienvenue</h3>
+                                </header>
+                                <div class="w3-container" style="background-color: #FDFAFA">
+                                  <p>Avant de commencer, veuillez choisir la langue de votre choix.</p><br>
+                                </div>
+                                <button class="w3-button w3-block"style="background-color: #D0021B; color: #FFFFFF" onclick="setLanguage('français')">Français</button>
+                              </div>
+                </div>
+              </div>
+
+</div>
+
+<!-- </main> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./component/js/constants.js"></script>
+<script src="./component/js/lineup.js"></script>
+
+
+<script>
 
         var selectedLanguage;
         $(document).ready(function () {
@@ -188,9 +235,9 @@
                     event.preventDefault();
                 }
             });
-            say('Hi');
-            say('What type of content do you want?');
-          
+            var lang = selectedLanguage.substring(0,2);
+            say(constants[lang].welcome);
+            say(constants[lang].ask);         
         }
 
         function setLanguage(lang) {
@@ -199,49 +246,5 @@
         }
 
     </script>
-
-</head>
-
-<body>
-        <!-- <main> -->
-    <!-- container element for chat window -->
-    <div id="chat" class="bubble-container" >
-         
-        <div id="chatwrap" class="bubble-wrap" style="padding-bottom: 100px;">
-        </div>
-      
-        <div class="input-wrap"><p1>Please enter your question:</p1><textarea aria-label="Ask me anything!" id="inputbox" placeholder="Ask me anything..." onkeypress=""></textarea></div>
-    </div>
-   
-
-<div id="lang" class="w3-container" style="width:60%; margin:auto;">
-        <div class="w3-row">
-                <div class="w3-half w3-center">
-                        <div class="w3-card-4"  style="margin: 5px">
-                                <header class="w3-container" style="background-color: #FFFFFF">
-                                  <h3>Welcome</h3>
-                                </header>
-                                <div class="w3-container" style="background-color: #FDFAFA">
-                                  <p>Before we begin, please choose the language you prefer.</p><br>
-                                </div>
-                                <button class="w3-button w3-block" style="background-color: #D0021B; color: #FFFFFF" onclick="setLanguage('English')">English</button>
-                              </div>
-                </div>
-                <div class="w3-half w3-center" >
-                        <div class="w3-card-4"  style="margin: 5px">
-                                <header class="w3-container" style="background-color: #FFFFFF">
-                                  <h3>Bienvenue</h3>
-                                </header>
-                                <div class="w3-container" style="background-color: #FDFAFA">
-                                  <p>Avant de commencer, veuillez choisir la langue de votre choix.</p><br>
-                                </div>
-                                <button class="w3-button w3-block"style="background-color: #D0021B; color: #FFFFFF" onclick="setLanguage('Français')">Français</button>
-                              </div>
-                </div>
-              </div>
-
-</div>
-
-<!-- </main> -->
 </body>
 </html>
