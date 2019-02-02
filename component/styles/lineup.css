@@ -1,0 +1,22 @@
+.talk-say {
+    color: #212121;
+    background: rgba(255, 255, 255, 0.84);
+    padding: 8px 16px;
+    border-radius: 2px 15px 15px 15px;
+    font-weight: 400;
+    text-transform: none;
+    text-align: left;
+    font-size: 16px;
+    letter-spacing: .5px;
+    margin: 0 0 2px 0;
+    max-width: 65%;
+    float: none;
+    clear: both;
+    line-height: 1.5em;
+    word-break: break-word;
+    transform-origin: left top;
+    transition: all 200ms;
+    box-sizing: content-box;
+    cursor: pointer;
+  }
+  

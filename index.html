@@ -23,10 +23,20 @@
         .bubble-container {
             height: 100vh;
         }
+        .a11y {
+            position: absolute!important;
+            clip: rect(1px,1px,1px,1px);
+            padding: 0!important;
+            border: 0!important;
+            height: 1px!important;
+            width: 1px!important;
+            overflow: hidden;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  
+    <script src="./component/js/lineup.js"></script>
+
     <script>
 
         var selectedLanguage;
@@ -44,6 +54,14 @@
                 $('#chat').hide()
             }
         }    
+
+
+        function startConversation() {
+            $('#chat').show()
+            say('Hi in ' + selectedLanguage);
+            say('What type of content do you want?');
+          
+        }
 
         function setLanguage(lang) {
             selectedLanguage = lang;
