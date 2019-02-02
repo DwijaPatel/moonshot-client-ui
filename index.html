@@ -14,7 +14,6 @@
     <link rel="stylesheet" media="all" href="./component/styles/lineup.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    
     <style>
         body {
             background: #dcdde0;
@@ -23,6 +22,124 @@
         .bubble-container {
             height: 100vh;
         }
+
+        .bubble-container .input-wrap textarea {
+            margin: 0;
+            width: calc(100% - 30px);
+        }
+
+        .bubble-row .bubble-auto {
+            margin: 5px;
+
+        }
+
+        .bubble .say {
+            width: 100% !important;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .left {
+            flex: 66.33%;
+            margin: 5px;
+            margin-right: 10px;
+        }
+
+        .right {
+            flex: 33.33%;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .talk-say {
+            color: #212121;
+            display: block;
+            background: rgba(255, 255, 255, 0.75);
+            padding: 8px 16px;
+            border-radius: 2px 15px 15px 15px;
+            font-weight: 400;
+            text-transform: none;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: .5px;
+            margin: 0 0 2px 0;
+            max-width: 65%;
+            float: none;
+            clear: both;
+            line-height: 1.5em;
+            word-break: break-word;
+            transform-origin: left top;
+            transition: all 200ms;
+            box-sizing: content-box;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .talk-say:hover {
+            background: rgba(255, 255, 255, 1.0);
+            cursor: pointer;
+        }
+
+        .talk-say:active {
+            background: rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+        }
+
+        .talk-think {
+            color: #212121;
+            display: block;
+            background: rgba(221, 219, 222, 1.0);
+            padding: 8px 16px;
+            border-radius: 2px 15px 15px 15px;
+            font-weight: 400;
+            text-transform: none;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: .5px;
+            margin: 0 0 2px 0;
+            max-width: 65%;
+            float: none;
+            clear: both;
+            line-height: 1.5em;
+            word-break: break-word;
+            transform-origin: left top;
+            transition: all 200ms;
+            box-sizing: content-box;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .talk-reply {
+            background: rgba(44, 44, 44, 0.67);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 15px 15px 2px 15px;
+            margin-left: 2px;
+            text-align: center;
+            display: inline-block;
+            float: right;
+            cursor: pointer;
+            transition: all 200ms;
+            text-decoration: none;
+            word-break: normal;
+            box-sizing: content-box;
+
+            margin-top: 3px;
+            min-height: 24px;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        .talk-reply:hover {
+            background: rgba(44, 44, 44, 0.92);
+        }
+
+        .talk-reply:active {
+            background: rgba(44, 44, 44, 0.82);
+        }
+
         .a11y {
             position: absolute!important;
             clip: rect(1px,1px,1px,1px);
@@ -32,6 +149,7 @@
             width: 1px!important;
             overflow: hidden;
         }
+
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -85,7 +203,7 @@
 </head>
 
 <body>
-        <main>
+        <!-- <main> -->
     <!-- container element for chat window -->
     <div id="chat" class="bubble-container" >
 
@@ -124,6 +242,6 @@
 
 </div>
 
-</main>
+<!-- </main> -->
 </body>
 </html>
