@@ -5,6 +5,31 @@ function say(message) {
         .append('<div class="talk-say"  tabindex="0"><span class="a11y">The Bot Said </span>' + message + '</div>');
         scrollToBottm();
 }
+function say(message, link) {
+    if(link == 'nothing') {
+        $('#chatwrap')
+        .append('<div class="talk-say" ><span class="a11y">The Bot Said </span>' + message + '</div>');
+        scrollToBottm();
+    } else {
+        var clickHandler = 'handleUrl(\'' + link + '\')';
+        $('#chatwrap')
+        .append('<div class="talk-say" onclick="'+ clickHandler + '" tabindex="0"><span class="a11y">The Bot Said </span>' + message + '</div>');
+        scrollToBottm();
+    }
+}
+
+function handleUrl(url) {
+    if(url != 'undefined') {
+        window.open(url, '_blank');
+    } else {
+        startThinking(); 
+        index = index+5;
+        setTimeout(function() {
+            displayCards(list, index);
+        },1000);
+    }
+}
+
 function scrollToBottm() {
     $("#chatwrap").animate({ scrollTop: $('#chatwrap').prop("scrollHeight")}, 100);
 }
