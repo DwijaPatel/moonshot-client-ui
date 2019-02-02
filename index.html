@@ -56,7 +56,7 @@
         .talk-say {
             color: #212121;
             display: block;
-            background: rgba(255, 255, 255, 0.75);
+            background: #fAEFF0;
             padding: 8px 16px;
             border-radius: 2px 15px 15px 15px;
             font-weight: 400;
@@ -112,7 +112,7 @@
         }
 
         .talk-reply {
-            background: rgba(44, 44, 44, 0.67);
+            background: #D0021B;
             color: #fff;
             padding: 8px 16px;
             border-radius: 15px 15px 2px 15px;
@@ -188,7 +188,7 @@
                     event.preventDefault();
                 }
             });
-            say('Hi in ' + selectedLanguage);
+            say('Hi');
             say('What type of content do you want?');
           
         }
@@ -206,36 +206,36 @@
         <!-- <main> -->
     <!-- container element for chat window -->
     <div id="chat" class="bubble-container" >
-
+         
         <div id="chatwrap" class="bubble-wrap" style="padding-bottom: 100px;">
-
         </div>
       
         <div class="input-wrap"><p1>Please enter your question:</p1><textarea aria-label="Ask me anything!" id="inputbox" placeholder="Ask me anything..." onkeypress=""></textarea></div>
     </div>
+   
 
 <div id="lang" class="w3-container" style="width:60%; margin:auto;">
         <div class="w3-row">
                 <div class="w3-half w3-center">
                         <div class="w3-card-4"  style="margin: 5px">
-                                <header class="w3-container w3-light-grey">
-                                  <h1>Welcome</h1>
+                                <header class="w3-container" style="background-color: #FFFFFF">
+                                  <h3>Welcome</h3>
                                 </header>
-                                <div class="w3-container">
-                                  <p>You will be able to choose your language next.</p><br>
+                                <div class="w3-container" style="background-color: #FDFAFA">
+                                  <p>Before we begin, please choose the language you prefer.</p><br>
                                 </div>
-                                <button class="w3-button w3-block w3-dark-grey" onclick="setLanguage('English')">English</button>
+                                <button class="w3-button w3-block" style="background-color: #D0021B; color: #FFFFFF" onclick="setLanguage('English')">English</button>
                               </div>
                 </div>
                 <div class="w3-half w3-center" >
                         <div class="w3-card-4"  style="margin: 5px">
-                                <header class="w3-container w3-light-grey">
-                                  <h1>Bienvenue</h1>
+                                <header class="w3-container" style="background-color: #FFFFFF">
+                                  <h3>Bienvenue</h3>
                                 </header>
-                                <div class="w3-container">
-                                  <p>CMás adelante podrás escoger tu idoma.</p><br>
+                                <div class="w3-container" style="background-color: #FDFAFA">
+                                  <p>Avant de commencer, veuillez choisir la langue de votre choix.</p><br>
                                 </div>
-                                <button class="w3-button w3-block w3-dark-grey" onclick="setLanguage('Français')">Français</button>
+                                <button class="w3-button w3-block"style="background-color: #D0021B; color: #FFFFFF" onclick="setLanguage('Français')">Français</button>
                               </div>
                 </div>
               </div>
