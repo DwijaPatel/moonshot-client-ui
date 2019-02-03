@@ -62,6 +62,9 @@ function searchCards(search_for, selectedLanguage) {
     })
     .then(function (response) {
         console.log(response);
+        if(response.error) {
+            say(constants[lang].error);
+        }
         list = response;
         setTimeout(function() {
             displayCards(response, index, lang.toLowerCase());
@@ -121,7 +124,7 @@ function displayCards(cards, index, lang) {
         return '<div class="row" role="link">' +
                     '<div class="left">' +
                         '<span style="width:100%" id="cardtitle"+'+index +')><strong>' + cardItem.title + '</strong></span>' + 
-                        '<span class="row" id="cardtimestamp" style="font-size: 12px;"><i>Published: ' + displayTime(cardItem.updatedAt) + '</i></span>' +
+                        '<span class="row" id="cardtimestamp" style="font-size: 12px;"><i> ' + displayTime(cardItem.updatedAt) + '</i></span>' +
                         '<span class="row" id="cardviews" style="font-size: 12px;"> Viewers: ' + getPureValue(cardItem.numViewers) + '</span>' +
                     '</div>' +
                     '<div class="right">' +
@@ -130,9 +133,10 @@ function displayCards(cards, index, lang) {
                 '</div>';
     }
 
+
     function displayTime(publishedAt){
         var str = "";
-        if(publishedAt) {
+        if(publishedAt && !isNaN(publishedAt)) {
         var today = new Date();
       
         var difference = today.getTime() - publishedAt;
