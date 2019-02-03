@@ -115,7 +115,11 @@ function displayCards(cards, index) {
     function displayCard(cardItem, duration, index) {
         setTimeout(function () {
             stopThinking();
-            say(getCard(cardItem, index), cardItem.url);
+            if(cardItem.contentType === 'podcast') {
+                say(getPodcastCard(cardItem, index), cardItem.url);
+            } else {
+                say(getCard(cardItem, index), cardItem.url);
+            }
             startThinking();
         }, duration);
     }
@@ -123,7 +127,7 @@ function displayCards(cards, index) {
     function getCard(cardItem, index) {
         return '<div class="row" role="link">' +
             '<div class="left">' +
-            '<span style="width:100%" id="cardtitle"+' + index + ')><strong>' + cardItem.title + '</strong></span>' +
+            '<span style="width:100%" id="cardtitle"><strong>' + cardItem.title + '</strong></span>' +
             '<span class="row" id="cardtimestamp" style="font-size: 12px;"><i> ' + displayTime(cardItem.updatedAt) + '</i></span>' +
             '<span class="row" id="cardviews" style="font-size: 12px;"> Viewers: ' + getPureValue(cardItem.numViewers) + '</span>' +
             '</div>' +
@@ -133,6 +137,32 @@ function displayCards(cards, index) {
             '</div>';
     }
 
+    function getPodcastCard(cardItem, index) {
+        return '<div class="row" role="link">' +
+            '<div class="left">' +
+            '<span style="width:100%" id="cardtitle"><strong>' + cardItem.title + '</strong></span>' +
+            '<span class="row" id="cardtimestamp" style="font-size: 12px;"><i> ' + displayPodcastDate(cardItem.mostRecentClip.releasedAt, cardItem.mostRecentClip.releasedAtPretty) + '</i></span>' +
+            '<span class="row" id="cardviews" style="font-size: 12px;">' + cardItem.mostRecentClip.title + '</span>' +
+            '<audio controls src="' + cardItem.mostRecentClip.url + '"/>'+
+            '</div>' +
+            
+            '<div class="right">' +
+            '<img id="cardImage" src="' + cardItem.image + '"  width="150px" alt="">' +
+            '</div>'+
+            '</div>';
+    }
+
+    function displayPodcastDate(releasedAt, releasetAtPretty) {
+        var date = new Date(releasedAt);
+        var months = {};
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+        var mmm = months[date.getMonth()];
+        var  releasedAtPrettyArray = releasetAtPretty.split(" ")[0].split("-");
+        var year = releasedAtPrettyArray[0];
+        var day = releasedAtPrettyArray[2];
+        return day + " " + mmm + " " + year
+        
+    }
 
     function displayTime(publishedAt) {
         var str = "";
