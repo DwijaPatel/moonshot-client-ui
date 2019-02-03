@@ -2,13 +2,13 @@ var index = 0;
 var list;
 function say(message) {
     $('#chatwrap')
-        .append('<div class="talk-say"  tabindex="0"><span class="a11y">The Bot Said </span>' + message + '</div>');
+        .append('<div class="talk-say"  tabindex="0"><img src="./component/images/cbclogo.png" style="width:50px" alt="cbc"> </img><span class="a11y">The Bot Said </span>' + message + '</div>');
         scrollToBottm();
 }
 function say(message, link) {
     if(link == 'nothing') {
         $('#chatwrap')
-        .append('<div class="talk-say" ><span class="a11y">The Bot Said </span>' + message + '</div>');
+        .append('<div class="talk-say" tabindex="0"><span class="a11y">The Bot Said </span>' + message + '</div>');
         scrollToBottm();
     } else {
         var clickHandler = 'handleUrl(\'' + link + '\')';
@@ -65,12 +65,12 @@ function searchCards(search_for, selectedLanguage) {
         list = response;
         setTimeout(function() {
             displayCards(response, index, lang.toLowerCase());
-        },1000);
+        },100);
         return response;
     }).catch(function() {
         console.log("error");
         stopThinking();
-        say('Please, I dont get it! Could you try again?');
+        say(constants[lang].error);
     });
 }
 function startThinking() {
@@ -93,12 +93,11 @@ function getPureValue(viewers) {
 function displayCards(cards, index, lang) {
     var time = 0;
     for (var i = index; i < index+5 && i < cards.length; i++) {
-        displayCard(cards[i], time * 1000);
+        displayCard(cards[i], time * 100, i);
         time++;
         if(i == index+4 || i == cards.length-1){
             setTimeout(function() {
                 stopThinking();
-                console.log(constants);
                 if(i == cards.length){
                     say(constants[lang].ask);
                 } else {
@@ -106,24 +105,24 @@ function displayCards(cards, index, lang) {
                     say(constants[lang].ask);
                 }  
                 
-            }, 6000);  
+            }, 600);  
         }
     }  
 
-    function displayCard(cardItem, duration) {
+    function displayCard(cardItem, duration, index) {
         setTimeout(function(){
             stopThinking();
-            say(getCard(cardItem), cardItem.url);
+            say(getCard(cardItem, index), cardItem.url);
             startThinking();
         }, duration);
     }
     
-    function getCard(cardItem) {
+    function getCard(cardItem, index) {
         return '<div class="row" role="link">' +
                     '<div class="left">' +
-                        '<span style="width:100%" id="title"><strong>' + cardItem.title + '</strong></span>' +
-                        '<span class="row" id="timestamp" style="font-size: 12px;"><i>Published: ' + displayTime(cardItem.updatedAt) + '</i></span>' +
-                        '<span class="row" id="views" style="font-size: 12px;"> Viewers: ' + getPureValue(cardItem.numViewers) + '</span>' +
+                        '<span style="width:100%" id="cardtitle"+'+index +')><strong>' + cardItem.title + '</strong></span>' + 
+                        '<span class="row" id="cardtimestamp" style="font-size: 12px;"><i>Published: ' + displayTime(cardItem.updatedAt) + '</i></span>' +
+                        '<span class="row" id="cardviews" style="font-size: 12px;"> Viewers: ' + getPureValue(cardItem.numViewers) + '</span>' +
                     '</div>' +
                     '<div class="right">' +
                         '<img id="cardImage" src="' + cardItem.image + '" style="width:100%" alt="">' +
@@ -132,6 +131,8 @@ function displayCards(cards, index, lang) {
     }
 
     function displayTime(publishedAt){
+        var str = "";
+        if(publishedAt) {
         var today = new Date();
       
         var difference = today.getTime() - publishedAt;
@@ -144,7 +145,6 @@ function displayCards(cards, index, lang) {
         difference -= minutesDifference*1000*60
         var secondsDifference = Math.floor(difference/1000);
     
-        var str = "";
         if(daysDifference != 0){
             str += daysDifference;
             if(daysDifference > 1){
@@ -173,7 +173,7 @@ function displayCards(cards, index, lang) {
         if(str != null){
             str += "ago";
         }
-        
+    }
        return str;
     }
     
