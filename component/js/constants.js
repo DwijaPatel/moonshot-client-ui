@@ -8,6 +8,6 @@ var constants = {
     fr: {
         welcome: "Bonjour",
         ask: "Quel sorte de contenu voulez-vous?",
-        error: "Je ne comprends pas, pouvez-vous réessayer ?" 
+        error: "Je ne comprends pas, pouvez-vous réessayer ?"
     }
 };
